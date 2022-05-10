@@ -1,7 +1,7 @@
 const users = require('../data/users')
 
 const controller = {
-    index: async (req, res, next) => await res.send(users)
+    index: (req, res) => res.render('users', {title: "Usuários", user: "users"})
 }
   
 module.exports = controller
