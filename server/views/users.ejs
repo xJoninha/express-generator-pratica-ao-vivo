@@ -9,7 +9,9 @@
 
     <% if(locals.users && locals.users.length) {%>
       <% for(let user of users) {%>
-        <%= user.id %>
+
+        <%= include('partials/users') %>
+
       <% } %>
     <% } else {%>
       <h4>Infelizmente não há usuários cadastrados...</h4>
