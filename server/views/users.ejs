@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
 
-    <% if(locals.users && locals.users.length) {%>
-      <% for(let user of users) {%>
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
 
-        <%= include('partials/users') %>
+<body>
+  <h1><%= title %></h1>
+  <% if(locals.users && locals.users.length) { %>
+  <% for(let user of users) { %>
+  <article id="user<%= user.id %>">
+    <img src="<%= user.avatar %>" alt="" width="72" height="72">
+    <h2><%= user.nome %> <%= user.sobrenome %></h2>
+    <p><%= user.email %></p>
+    <p><%= user.idade %></p>
+  </article>
+  <% } %>
+  <% } else { %>
+  <p>Infelizmente não há usuários cadastrados...</p>
+  <%} %>
+</body>
 
-      <% } %>
-    <% } else {%>
-      <h4>Infelizmente não há usuários cadastrados...</h4>
-      <% } %>
-  </body>
 </html>
