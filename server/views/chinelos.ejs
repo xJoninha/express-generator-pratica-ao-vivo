@@ -9,14 +9,24 @@
 <body>
     <h1><%= title %></h1>
     <section>
-        <h2>Todos os Chinelos</h2>
-        <article style="background-color: #f0f" id="chinelo1">
-            id: 1
-            marca: "Havaianas"
-            cor: #f0f
-            ano: 1998
-            exclusiva: true
-        </article>
+
+        <% if(locals.chinelos && locals.chinelos.length) { %>
+            <h2>Todos os Chinelos</h2>
+
+            <% for(let chinelo of chinelos) { %>
+
+            <article id="chinelo<%= chinelo.id %>" data-exclusiva="<%= chinelo.exclusiva %>">
+                <h3 style="border-bottom: 2px solid <%= chinelo.cor %>; color: <%= chinelos.cor %>;">"Havaianas"</h3>
+                <div>
+                    <p><%= chinelo.ano %></p>
+                </div>
+            </article>
+
+            <% } %>
+        
+        <% } else { %>
+            <h2>Sem Chinelos por hoje... Volte Mais Tarde</h2>
+        <% } %>
     </section>
     
 </body>
