@@ -1,33 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
 </head>
 <body>
-    <h1><%= title %></h1>
-    <section>
+  <h1><%= title %></h1>
+  <section>
 
-        <% if(locals.chinelos && locals.chinelos.length) { %>
-            <h2>Todos os Chinelos</h2>
-
-            <% for(let chinelo of chinelos) { %>
-
-            <article id="chinelo<%= chinelo.id %>" data-exclusiva="<%= chinelo.exclusiva %>">
-                <h3 style="border-bottom: 2px solid <%= chinelo.cor %>; color: <%= chinelos.cor %>;">"Havaianas"</h3>
-                <div>
-                    <p><%= chinelo.ano %></p>
-                </div>
-            </article>
-
-            <% } %>
-        
-        <% } else { %>
-            <h2>Sem Chinelos por hoje... Volte Mais Tarde</h2>
-        <% } %>
-    </section>
+    <% if(locals.chinelos && locals.chinelos.length) { %>
+      <h2>Todos os chinelos</h2>
     
+      <% for(let chinelo of chinelos) { %>
+
+      <article id="chinelo<%= chinelo.id %>" data-exclusiva="<%= chinelo.exclusiva ? `sim` : `não` %>">
+        <h3 style="border-bottom: 2px solid <%= chinelo.cor %>;color: <%= chinelo.cor %>" ><%= chinelo.marca %></h3>
+        <div>
+          <p>Ano: <%= chinelo.ano %></p>
+        </div>
+      </article>
+
+      <% } %>
+
+    <% } else { %>
+      <h2>Sem chinelos por hoje... Volte mais tarde.</h2>
+    <% } %>
+  </section>
 </body>
 </html>
