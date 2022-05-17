@@ -1,0 +1,9 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+    <h1>Os <%= title %> Faz "AU AU"</h1>
+    <ul>
+        <% fot(let dog of dogs) { %>
+            <li><%= dog %></li>
+        <% } %>
+    </ul>
+<%- include('partials/footer') %>
